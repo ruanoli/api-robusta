@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Manager.Domain.Validator;
 
 namespace Manager.Domain.Entities
@@ -9,7 +7,6 @@ namespace Manager.Domain.Entities
         public string Name { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }   
-        // public int Age { get; private set; }
 
         //EF
         protected User() {}
@@ -39,11 +36,6 @@ namespace Manager.Domain.Entities
             Email = email;
             Validate();
         }
-
-        // public void CurrentAge()
-        // {
-        //     Validate();
-        // }
 
         public override bool Validate()
         {

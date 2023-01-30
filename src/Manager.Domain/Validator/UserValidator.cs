@@ -1,4 +1,3 @@
-
 using FluentValidation;
 using Manager.Domain.Entities;
 
@@ -59,16 +58,6 @@ namespace Manager.Domain.Validator
 
                 .Matches(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$")
                 .WithMessage("O e-mail deve estar em um formato válido.");
-
-            // RuleFor(x => x.Age)
-            //     .NotEmpty()
-            //     .WithMessage("A idade não pode ser vazia.")
-
-            //     .NotNull()
-            //     .WithMessage("A idade não pode ser nula")
-
-            //     .InclusiveBetween(18, 120)
-            //     .WithMessage("O usuário deve ter ser maior de idade.");
         }
     }
 }
