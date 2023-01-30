@@ -18,6 +18,8 @@ namespace Manager.Domain.Entities
             Email = email;
             Password = password;
             _erros = new List<string>();
+
+            Validate();
         }
 
         public void ChangeName(string name)
