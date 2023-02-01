@@ -14,10 +14,10 @@ namespace Manager.Infra.Context
         public ManagerContext(DbContextOptions<ManagerContext> options) : base(options)
         {}
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsbuilder)
-        {
-            optionsbuilder.UseSqlServer(@"Data Source=NOTE-RC\SQLEXPRESS;Initial Catalog=USERMANAGERAPI;Integrated Security=True;Connect Timeout=30;Encrypt=False");
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsbuilder)
+        // {
+        //     optionsbuilder.UseSqlServer(@"Data Source=NOTE-RC\SQLEXPRESS;Initial Catalog=USERMANAGERAPI;Integrated Security=True;Connect Timeout=30;Encrypt=False");
+        // }
 
         public virtual DbSet<User> Users { get; set;}
 

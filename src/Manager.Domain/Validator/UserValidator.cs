@@ -21,8 +21,8 @@ namespace Manager.Domain.Validator
                 .NotNull()
                 .WithMessage("O nome não pode ser nulo.")
 
-                .MinimumLength(10)
-                .WithMessage("O nome deve ter no mínimo 10 caracteres.")
+                .MinimumLength(3)
+                .WithMessage("O nome deve ter no mínimo 3 caracteres.")
 
                 .MaximumLength(180)
                 .WithMessage("O nome deve ter no máximo 180 caracteres.");
@@ -38,10 +38,7 @@ namespace Manager.Domain.Validator
                 .WithMessage("A senha deve ter no mínimo 8 caracteres.")
 
                 .MaximumLength(32)
-                .WithMessage("A senha deve ter no máximo 32 caracteres.")
-
-                .Matches(@"^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$")
-                .WithMessage("A senha deve ter no mínimo 8 caracteres, letras maiúsculas e minusculas, caracteres especiais e números.");
+                .WithMessage("A senha deve ter no máximo 32 caracteres.");
 
             RuleFor(x => x.Email)
                 .NotEmpty()
