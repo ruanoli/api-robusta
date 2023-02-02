@@ -54,7 +54,7 @@ namespace Manager.Domain.Validator
                 .WithMessage("O e-mail deve ter no máximo 80 caracteres.")
 
                 .Matches(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$")
-                .WithMessage("O e-mail deve estar em um formato válido.");
+                .WithMessage("O email informado não é válido.");
         }
     }
 }

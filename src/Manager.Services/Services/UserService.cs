@@ -61,7 +61,7 @@ namespace Manager.Services.Services
             var userExists = await _userRepository.GetByEmail(userDto.Email);
 
             if(userExists != null)
-                new DomainException("Já existe um usuário cadastrado com o e-mail informado.");
+                throw new DomainException("Já existe um usuário cadastrado com o e-mail informado.");
 
             var user = _map.Map<User>(userDto);
             user.Validate();
