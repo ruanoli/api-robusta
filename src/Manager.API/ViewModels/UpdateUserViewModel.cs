@@ -1,9 +1,13 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Manager.API.ViewModels
 {
-    public class CreateUserViewModel
+    public class UpdateUserViewModel
     {
+        [Required(ErrorMessage = "O ID não pode ser vazio.")]
+        [Range(1, int.MaxValue, ErrorMessage = "O ID não pode ser menor que 1.")]
+        public long Id { get; set; }
+
         [Required(ErrorMessage = "A entidade não pode ser nula.")]
         [MinLength(3, ErrorMessage = "O nome deve ter no mínimo 03 caracteres.")]
         [MaxLength(180, ErrorMessage = "O nome deve ter no mínimo 180 caracteres.")]
@@ -19,6 +23,6 @@ namespace Manager.API.ViewModels
         [Required(ErrorMessage = "A senha não pode ser vazia")]
         [MinLength(8, ErrorMessage = "A senha deve ter no mínimo 8 caracteres.")]
         [MaxLength(80, ErrorMessage = "A senha deve ter no máximo 32 caracteres.")]
-        public string Password { get; set; } 
+        public string Password { get; set; }
     }
 }

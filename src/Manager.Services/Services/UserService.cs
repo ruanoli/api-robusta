@@ -37,7 +37,7 @@ namespace Manager.Services.Services
             var userEmail = await _userRepository.GetByEmail(email);
             
             if(userEmail == null)
-                new DomainException("Não existe nenhum usuário com este e-mail cadastrado");
+                throw new DomainException("Não existe nenhum usuário com este e-mail cadastrado");
 
             return _map.Map<UserDto>(userEmail);
         }
@@ -76,7 +76,7 @@ namespace Manager.Services.Services
             var userExists = await _userRepository.Get(userDto.Id);
 
             if(userExists == null)
-                new DomainException("Não existe nenhum usuário com o Id informado.");
+                throw new DomainException("Não existe nenhum usuário com o Id informado.");
 
             var user = _map.Map<User>(userDto);
             user.Validate();
