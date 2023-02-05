@@ -4,12 +4,14 @@ using Manager.API.ViewModels;
 using Manager.Core.Exceptions;
 using Manager.Services.DTO;
 using Manager.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Manager.API.Controllers
 {
     [ApiController]
     [Route("[controller]/api/v1")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IMapper _map;
@@ -32,7 +34,7 @@ namespace Manager.API.Controllers
                 {
                     return Ok(new ResultViewModel()
                     {
-                        Message = "N„o h· users cadastrados.",
+                        Message = "N√£o h√° users cadastrados.",
                         Sucess = true,
                         Data = null
                     });
@@ -66,7 +68,7 @@ namespace Manager.API.Controllers
                 {
                     return Ok(new ResultViewModel()
                     {
-                        Message = "User n„o encontrado!",
+                        Message = "User n√£o encontrado!",
                         Sucess = true,
                         Data = null
                     });
@@ -100,7 +102,7 @@ namespace Manager.API.Controllers
                 {
                     return Ok(new ResultViewModel()
                     {
-                        Message = "Email n„o encontrado!",
+                        Message = "Email n√£o encontrado!",
                         Sucess = true,
                         Data = null
                     });
@@ -134,7 +136,7 @@ namespace Manager.API.Controllers
                 {
                     return Ok(new ResultViewModel()
                     {
-                        Message = "Nome n„o encontrado",
+                        Message = "Nome n√£o encontrado",
                         Sucess = true,
                         Data = null
                     });
@@ -162,13 +164,13 @@ namespace Manager.API.Controllers
         {
             try
             {
-                var userAll = await _userService.SearchByName(email);
+                var userAll = await _userService.SearchByEmail(email);
 
                 if (userAll.Count == 0)
                 {
                     return Ok(new ResultViewModel()
                     {
-                        Message = "Email n„o encontrado",
+                        Message = "Email n√£o encontrado",
                         Sucess = true,
                         Data = null
                     });
@@ -250,7 +252,7 @@ namespace Manager.API.Controllers
 
                 return Ok(new ResultViewModel()
                 {
-                    Message = "User excluÌdo.",
+                    Message = "User exclu√≠do.",
                     Sucess = true,
                     Data = null
                 });

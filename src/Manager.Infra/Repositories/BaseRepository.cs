@@ -20,7 +20,7 @@ namespace Manager.Infra.Repositories
                     .ToListAsync();
         }
 
-         public virtual async Task<T> Get(long id)
+        public virtual async Task<T> Get(long id)
         {
             var obj = await _context.Set<T>()
                     .AsNoTracking()
@@ -36,7 +36,7 @@ namespace Manager.Infra.Repositories
             return obj;
         }
 
-                public virtual async Task<T> Update(T obj)
+        public virtual async Task<T> Update(T obj)
         {
             _context.Entry(obj).State = EntityState.Modified;
             await _context.SaveChangesAsync();
